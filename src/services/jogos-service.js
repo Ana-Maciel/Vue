@@ -42,6 +42,19 @@ export class JogosService {
             credentials: "include"
         }).then(handleResponse);
     }
+
+    save(_user){
+        var myHeaders = new Headers();
+        myHeaders.append("content-type", "application/json");
+        console.info("teste", _user);
+  
+        return fetch("http://localhost:8080/users", {
+          method: "POST",
+          credentials: "include",
+          headers: myHeaders,
+          body: JSON.stringify(_user)
+        }).then(handleResponse);
+    }
 }
 
 export const jService = new JogosService();
